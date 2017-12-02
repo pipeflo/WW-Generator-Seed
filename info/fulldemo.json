@@ -1,0 +1,140 @@
+{
+  "scenarioname": "Project Demo Generator",
+  "spaceid": "59bb8e33e4b01b546e6a51ba",
+  "apps": [{
+    "appname": "Connections Expert Finder",
+    "appid": "515898ad-f9dd-45e4-ad8d-a5bf217219c2"
+  }, {
+    "appname": "Sales Forward",
+    "appid": "5c00c362-a385-491d-ad4f-a4cbf0113d33"
+  }, {
+    "appname": "Entertainment",
+    "appid": "3683e8ed-3971-4257-bcec-bbd898d53001"
+  }],
+  "script": [{
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "/moment new"
+  }, {
+    "email": "frankadams@silvergreen.eu",
+    "action": "text",
+    "text": "I'm looking for some more *Connections* mega deals in _my territory_"
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "Let me see what I can do."
+  }, {
+    "email": "frankadams@silvergreen.eu",
+    "action": "text",
+    "text": "Thanks ! Appreciate that !"
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "You're welcome. I'll let you know asap."
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "In the meanwhile, take a look at this : [link](http://www.ibm.com)"
+  }, {
+    "email": "billranney@silvergreen.eu",
+    "action": "text",
+    "text": "Excellent ! Any idea who the expert is on Connections ?"
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "/moment new"
+  }, {
+    "email": "frankadams@silvergreen.eu",
+    "action": "text",
+    "text": "I'm looking for some more *Watson Workspace* leads in _Europe_"
+  }, {
+    "email": "frankadams@silvergreen.eu",
+    "action": "image",
+    "url": "https://steve-inc.box.com/shared/static/yrodv1yg2a7m520hyj9a3w0ymm84hkk2.png",
+    "filename": "remote.png",
+    "dim": "500x300"
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "Have a look in here :"
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "file",
+    "url": "https://steve-inc.box.com/shared/static/g9x1u5ygo49zuzm978tkqsyf3na0n1wk.pptx",
+    "filename": "Project Toscana.pptx"
+  }, {
+    "email": "frankadams@silvergreen.eu",
+    "action": "text",
+    "text": "Thanks, will have a look !"
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "You're welcome. Let me know how that works out"
+  }, {
+    "email": "alliesingh@silvergreen.eu",
+    "action": "text",
+    "text": "Thanks from me as well <@aba211f2-b47b-415b-8791-34a1a8a6ea76|Betty> !"
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "You're very welcome. 😀"
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "In the meanwhile, take a look at this : [link](http://www.ibm.com)"
+  }, {
+    "email": "billranney@silvergreen.eu",
+    "action": "text",
+    "text": "Excellent ! Any idea who the expert is on Connections ? 🤓"
+  }, {
+    "email": "billranney@silvergreen.eu",
+    "action": "image",
+    "url": "https://steve-inc.box.com/shared/static/d812lttvh71gxyapdd24fou8js39qptr.png",
+    "filename": "mobile.png",
+    "dim": "360x225"
+  }, {
+    "email": "charlesbounar@silvergreen.eu",
+    "action": "text",
+    "text": "Cool. Very interested too !!!"
+  }, {
+    "email": "charlesbounar@silvergreen.eu",
+    "action": "text",
+    "text": "/moment new"
+  }, {
+    "email": "frankadams@silvergreen.eu",
+    "action": "text",
+    "text": "I'm looking for some more IBM Verse opportunities in my area"
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "Let me see what I can do."
+  }, {
+    "email": "billranney@silvergreen.eu",
+    "action": "text",
+    "text": "Thanks ! Appreciate that !"
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "You're welcome. I'll let you know asap."
+  }, {
+    "email": "charlesbounar@silvergreen.eu",
+    "action": "text",
+    "text": "Thanks from me as well <@aba211f2-b47b-415b-8791-34a1a8a6ea76|Betty> !"
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "You're welcome. I'll let you know asap."
+  }, {
+    "email": "bettyzechman@silvergreen.eu",
+    "action": "text",
+    "text": "I'll post a message in here and mention you both."
+  }, {
+    "email": "charlesbounar@silvergreen.eu",
+    "action": "text",
+    "text": "Sounds like a plan !"
+  }, {
+    "email": "charlesbounar@silvergreen.eu",
+    "action": "text",
+    "text": "That's right <@17c10230-18a7-4273-9255-451f18645066|Allie> !"
+  }]
+}

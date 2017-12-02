@@ -1,0 +1,35 @@
+{
+  "scenarioname": "Test",
+  "spaceid": "593e7ec3e4b0b93c0b5b21e7",
+  "script": [{
+      "email": "steve.lievens@silvergreen.eu",
+      "action": "text",
+      "text": "/moment new"
+    },
+    {
+      "email": "frankadams@silvergreen.eu",
+      "action": "text",
+      "text": "I'm looking for some more *Connections* deals in _my territory_"
+    }, {
+      "email": "steve.lievens@silvergreen.eu",
+      "action": "text",
+      "text": "Let me see what I can do."
+    }, {
+      "email": "frankadams@silvergreen.eu",
+      "action": "text",
+      "text": "Thanks ! Appreciate that !"
+    }, {
+      "email": "steve.lievens@silvergreen.eu",
+      "action": "text",
+      "text": "You're welcome. I'll let you know asap."
+    }, {
+      "email": "steve.lievens@silvergreen.eu",
+      "action": "text",
+      "text": "In the meanwhile, take a look at this : [link](http://www.ibm.com)"
+    }, {
+      "email": "koen.lenaerts@silvergreen.eu",
+      "action": "text",
+      "text": "Excellent ! Any idea who the expert is on Connections ?"
+    }
+  ]
+}

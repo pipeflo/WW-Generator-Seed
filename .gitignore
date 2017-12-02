@@ -1,0 +1,5 @@
+node_modules/
+pushToBM*
+tailLogs.sh
+my.env
+npm-debug.log

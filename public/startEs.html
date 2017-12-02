@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109149620-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109149620-1');
+</script>
+
+
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Resume - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/resume.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">Start Bootstrap</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">Demo Salud</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  <div class="container-fluid">
+    <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="my-auto">
+          <h1 class="mb-0">Ingreso
+            <span class="text-primary">Paciente</span>
+          </h1>
+
+            <div class="subheading mb-5">Número de Identificación:<br>
+              <input id="idnumber" type="text" name="fname" style="width:250px" required>
+            </div>
+            <div class="subheading mb-5">Nombre y Apellido:<br>
+              <input id="name" type="text" name="fname" style="width:250px" required>
+            </div>
+            <div class="subheading mb-5">Síntomas:
+              <textarea class="form-control" rows="3" id="symptom" required></textarea>
+            </div>
+            <div class="alert alert-danger" style="display: none" id="error">
+              <strong>Error:</strong> Por favor ingrese toda la información
+            </div>
+            <div class="row">
+              <button id="start" type="submit" class="btn btn-primary btn-sm" style="width:250px">Ingresar Paciente</button>
+            </div>
+
+        </div>
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <div id="message"></div>
+            </div>
+        </div>
+      </section>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/resume.min.js"></script>
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script>
+    // vars
+    var script = "";
+    var jscript = {};
+
+    $(document).ready(function() {
+      // Check for the various File API support.
+      if (window.File && window.FileReader && window.FileList && window.Blob) {
+        // Great success! All the File APIs are supported.
+      } else {
+        alert('The File APIs are not fully supported in this browser.');
+      };
+      /*if (checkLogin()){
+
+      } else {
+        var uri = encodeURI("https://localhost:3000/auth/ww/callback.html");
+        window.location.replace("https://api.watsonwork.ibm.com/oauth/authorize?response_type=code&client_id=7bea1cc8-f16f-4e6c-8243-46783001b1e9&redirect_uri=" + uri +"&state=123456789&scope=read+write+ibmid");
+      }*/
+
+
+      $("#start").click(function() {
+        if($("#idnumber").val() && $("#name").val() && $("#symptom").val()){
+          $( "#error" ).hide( "slow" );
+          console.log("Posting JSON ...");
+
+          $.getJSON("resources/fulldemo.json", function(json) {
+              console.log("JSON LEIDO::::",json); // this will show the info it in firebug console
+              json.spacename = $("#name").val() + " - " + $("#idnumber").val();
+              json.accessToken = localStorage.getItem("accessToken");
+              json.refreshToken = localStorage.getItem("refreshToken");
+
+              //Add symptoms
+              var symptoms = {
+                email: "sonia.lopez@democollab.com",
+                action: "text",
+                text: $("#symptom").val()
+              };
+
+              json.script.push(symptoms);
+              console.log("JSON CON NUEVO SPACE ID::::",json); // this will show the info it in firebug console
+              var last_response_len = false;
+              var sjson = JSON.stringify(json);
+              $.ajax('/generate', {
+                  type: "POST",
+                  data: sjson,
+                  contentType: "application/json",
+                  dataType: "html",
+                  xhrFields: {
+                    onprogress: function(e) {
+                      var this_response, response = e.currentTarget.response;
+                      if (last_response_len === false) {
+                        this_response = response;
+                        last_response_len = response.length;
+                      } else {
+                        this_response = response.substring(last_response_len);
+                        last_response_len = response.length;
+                      }
+                      console.log(this_response);
+                      $("#message").append(this_response);
+                      document.body.scrollTop = document.body.scrollHeight;
+                      document.documentElement.scrollTop = document.documentElement.scrollHeight
+                      //$("#message").append("<br>");
+                    }
+                  }
+                })
+                .done(function(data) {
+                  console.log("Incoming data finished.");
+                })
+                .fail(function(data) {
+                  console.log('Error: ', data);
+                });
+          });
+        } else {
+          $( "#error" ).show( "slow" );
+          console.log("No está toda la información");
+        }
+
+      });
+    });
+
+    function checkLogin(){
+      if (localStorage.getItem("accessToken")){
+        //Token exists valdate it
+
+        alert("Existe token");
+        return true;
+      } else {
+        //token does not exists, autenticate using Oauth2
+        alert("NOOOO Existe token");
+        return false;
+      }
+    }
+
+    function readTextFile(file)
+    {
+        var rawFile = new XMLHttpRequest();
+        rawFile.open("GET", file, false);
+        rawFile.onreadystatechange = function ()
+        {
+            if(rawFile.readyState === 4)
+            {
+                if(rawFile.status === 200 || rawFile.status == 0)
+                {
+                    var allText = rawFile.responseText;
+                    alert(allText);
+                }
+            }
+        }
+        rawFile.send(null);
+    }
+
+    //LF - Add element to script
+    function addElementToScript(type, element, script){
+      if (type === "user"){
+
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{
+"operation":"createMessage",
+"query":"\n  mutation createMessage($input: CreateMessageInput!) {\n    createMessage(input: $input) {\n      message {\n        id\n      }\n    }\n  }\n",
+"variables":"{\"input\":{\"conversationId\":\"593e7ec3e4b0b93c0b5b21e7\",\"content\":\"test\"}}"
+}
+
+{
+"operation":"createMessage",
+"query":"mutation createMessage($input: CreateMessageInput!) {createMessage(input: $input) {message {id}}}",
+"variables":"{\"input\":{\"conversationId\":\"593e7ec3e4b0b93c0b5b21e7\",\"content\":\"This seems to work !!!\"}}"
+}
+
+{
+"operation":"createMessage",
+"query":"mutation createMessage($input: CreateMessageInput!) {createMessage(input: $input) {message {id}}}",
+"variables":"{\"input\":{\"conversationId\":\"593e7ec3e4b0b93c0b5b21e7\",\"content\":\"Thanks ! Appreciate that !\"}}"
+}
+
+
+toscana-web-client-id:989b82d0-46ed-457c-ab5f-ccce3ca44dc9
+
+https://api.watsonwork.ibm.com/graphql
+
+POST
+
+accept:application/json
+Accept-Encoding:gzip, deflate, br
+Accept-Language:en-US,en;q=0.8,nl;q=0.6,de;q=0.4,fr;q=0.2,es;q=0.2
+Connection:keep-alive
+Content-Length:282
+content-type:application/json
+Host:api.watsonwork.ibm.com
+jwt:eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJzdGV2ZS5saWV2ZW5zQHNpbHZlcmdyZWVuLmV1IiwiZGlzcGxheU5hbWUiOiJTdGV2ZSBMaWV2ZW5zIiwicHJvdmlkZXJJZCI6IkJMVUVfSURfQVVUSF9QUk9WSURFUiIsInBlcm1pc3Npb25zIjpbInVzZXIiXSwic2NvcGUiOlsiaWJtaWQiLCJydG0iLCJyZWFkIiwid3JpdGUiLCJzZWFyY2giLCJhcHByb3ZhbC5tYW5hZ2UiXSwiaWQiOiJiMjQxMTAxZS1kN2ZkLTQ3YWEtOTk5Yy03NWIzZWE2OTZkODUiLCJleHAiOjE0OTc5MjQ1MDcsImp0aSI6ImVmMjgyOGZiLTY5NjctNDM3YS1hYzRhLTI2NjkwYzNlNzIwNiIsImNsaWVudF9pZCI6InRvc2NhbmEtd2ViLWNsaWVudC1pZCJ9.IJx5idOwsqNrlG_-09n7Lm2OpI1I1BjPxEuBrCMSauzeOx_ane5C-ZVvxNJxXwg8RPUKJFdV-zqAJh1r-uB6rqO4edDpn_3diPoxa_TxDwo86QeS6GXNSM74HUEYzU6SR7bSY4Bp05cJ8RzK3X0Um_8zUqA8YJL-1ee8ngx0vSFtJmuVDgMtbYcA1kJIl2UewZcp7IyiTdERWwS7f6gaMBgPIPxgFfCEFM6eA3Cot4akyDijr-uq00eQHH9W51FC90qHIz-IXgDeXxmuVuqWn2kt63ny_AC2wHsXIKP2SLh9a96bFRrvs9AlC_8wotB5l3EmfAnqjA48FZm1fYpWcQ
+Origin:https://workspace.ibm.com
+Referer:https://workspace.ibm.com/space/593e7ec3e4b0b93c0b5b21e7
+User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36
+x-graphql-view:PUBLIC, SYNCHRONOUS_CREATE_MESSAGE
+x-requestid:Web-e97dd550-54f8-11e7-a81d-b721e637c8e2

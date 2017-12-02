@@ -1,0 +1,54 @@
+{
+  "scenarioname": "1019084787 - Felipe Florez",
+  "spacename": "",
+  "spaceid": "",
+  "apps": [
+    {
+      "appname": "Health Bot",
+      "appid": "d7dda23b-9831-47f8-a76b-ec2979a20ddb"
+    }
+  ],
+  "script": [
+    {
+      "email": "sonia.lopez@democollab.com",
+      "action": "text",
+      "text": "/moment new"
+    }, {
+      "email": "sonia.lopez@democollab.com",
+      "action": "text",
+      "text": "Hola soy el médico gestor de <@f8b0f4d2-b91b-452c-b19e-f171dbe52101|Felipe Flórez>"
+    }, {
+      "email": "sonia.lopez@democollab.com",
+      "action": "text",
+      "text": "<@f8b0f4d2-b91b-452c-b19e-f171dbe52101|Felipe Flórez> es un paciente Diabetico e Hipertenso"
+    }, {
+      "email": "sonia.lopez@democollab.com",
+      "action": "text",
+      "text": "Nacido el 19 de enero del 88, enfermedad diagnosticada a los 2 años de edad"
+    }, {
+      "email": "sonia.lopez@democollab.com",
+      "action": "text",
+      "text": "Insulino dependiente con bomba de insulina y dosis por conteo de carbohidratos"
+    }, {
+      "email": "sonia.lopez@democollab.com",
+      "action": "text",
+      "text": "/moment new"
+    }, {
+      "email": "sonia.lopez@democollab.com",
+      "action": "image",
+      "url": "https://socialdemo.box.com/shared/static/4ha38cdhpl6hmkj6jlbqahmcask56p0n.gif",
+      "filename": "examenes de sangre.gif",
+      "dim": "500x300"
+    }, {
+      "email": "sonia.lopez@democollab.com",
+      "action": "file",
+      "url": "https://socialdemo.box.com/shared/static/3edrema79kt27zcu18hkvcai6pdpa725.pdf",
+      "filename": "Historia Clínica.pdf"
+    }, {
+      "email": "sonia.lopez@democollab.com",
+      "action": "file",
+      "url": "https://socialdemo.box.com/shared/static/4btf9h73ts5qwgav1155qupbxhnz41m5.txt",
+      "filename": "Comentarios.txt"
+    }
+  ]
+}

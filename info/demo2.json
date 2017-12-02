@@ -1,0 +1,41 @@
+{
+  "scenarioname": "Test",
+  "spaceid": "593e7ec3e4b0b93c0b5b21e7",
+  "script": [{
+    "email": "frankadams@silvergreen.eu",
+    "action": "text",
+    "text": "I'm looking for some more Connections deals in my territory"
+  }, {
+    "email": "steve.lievens@silvergreen.eu",
+    "action": "text",
+    "text": "Let me see what I can do."
+  }, {
+    "email": "koen.lenaerts@silvergreen.eu",
+    "action": "text",
+    "text": "Thanks ! Appreciate that !"
+  }, {
+    "email": "steve.lievens@silvergreen.eu",
+    "action": "text",
+    "text": "You're welcome. I'll let you know asap."
+  }, {
+    "email": "peter.moensen@telenet.be",
+    "action": "text",
+    "text": "Thanks from me as well <@b241101e-d7fd-47aa-999c-75b3ea696d85|Steve> !"
+  }, {
+    "email": "steve.lievens@silvergreen.eu",
+    "action": "text",
+    "text": "You're welcome. I'll let you know asap."
+  }, {
+    "email": "steve.lievens@silvergreen.eu",
+    "action": "text",
+    "text": "I'll post a message in here and mention you both."
+  }, {
+    "email": "peter.moensen@telenet.be",
+    "action": "text",
+    "text": "Sounds like a plan !"
+  }, {
+    "email": "stijn_van_herzele@silvergreen.eu",
+    "action": "text",
+    "text": "That's right <@d107a9e6-9aa1-4fb7-a1b3-8c3486181c17|Peter Moensen> !"
+  }]
+}

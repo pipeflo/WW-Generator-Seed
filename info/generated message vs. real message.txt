@@ -1,0 +1,34 @@
+// message via api
+
+{
+  "data": {
+    "message": {
+      "id": "59429edbe4b04bdbfb67ae9d",
+      "content": null,
+      "contentType": "text/html",
+      "annotations": [
+        "{\"type\":\"generic\",\"color\":\"#ffffff\",\"version\":1,\"text\":\"Thanks ! Appreciate that !\",\"annotationId\":\"59429edbe4b04bdbfb67ae9c\",\"created\":1497538267766,\"createdBy\":\"5f8787c7-d2dc-4fae-9e58-33ab9fff3944\"}"
+      ]
+    }
+  }
+}
+
+
+// Real message
+
+{
+  "data": {
+    "message": {
+      "id": "5947d007e4b090361a4b53b5",
+      "content": "This is a real message",
+      "contentType": "text/markdown",
+      "annotations": [
+        "{\"hidden\":false,\"spaceId\":\"593e7ec3e4b0b93c0b5b21e7\",\"momentSummary\":{\"phrases\":[{\"label\":\"Real Message\",\"source\":\"keyword\",\"score\":0.95057,\"count\":null,\"category\":null}],\"mostRelevantMessage\":{\"messageId\":\"5947d007e4b090361a4b53b5\",\"published\":1497878535531}},\"momentId\":\"acea7f9e607938e3a3c09097b69a3453413e3497\",\"algorithm\":\"timegap\",\"participants\":[{\"authorId\":\"d2161058-7af2-4680-a595-7499ed4be754\",\"messageCount\":1}],\"startMessage\":{\"messageId\":\"5947d007e4b090361a4b53b5\",\"published\":1497878535531},\"lastUpdatedMessage\":{\"messageId\":\"5947d007e4b090361a4b53b5\",\"published\":1497878535531},\"momentVersion\":6,\"annotationId\":\"5947d007e4b090361a4b53b6\",\"created\":1497878535863,\"createdBy\":\"toscana-service-moment-identification-client-id\",\"type\":\"conversation-moment\"}",
+        "{\"language\":\"english\",\"keywords\":[{\"relevance\":0.95057,\"text\":\"real message\"}],\"annotationId\":\"5947d008e4b03567404d0c28\",\"created\":1497878536050,\"createdBy\":\"toscana-aip-nlc-consumer-client-id\",\"type\":\"message-nlp-keywords\"}",
+        "{\"language\":\"english\",\"docSentiment\":{\"score\":0.795555,\"type\":\"positive\"},\"annotationId\":\"5947d008e4b03567404d0c29\",\"created\":1497878536050,\"createdBy\":\"toscana-aip-nlc-consumer-client-id\",\"type\":\"message-nlp-docSentiment\"}",
+        "{\"language\":\"english\",\"relations\":[{\"sentence\":\"This is a real message\",\"subject\":{\"text\":\"This\"},\"action\":{\"lemmatized\":\"be\",\"text\":\"is\",\"verb\":{\"tense\":\"present\",\"text\":\"be\"}},\"object\":{\"keywords\":[{\"text\":\"real message\"}],\"text\":\"a real message\"}}],\"annotationId\":\"5947d008e4b03567404d0c2a\",\"created\":1497878536050,\"createdBy\":\"toscana-aip-nlc-consumer-client-id\",\"type\":\"message-nlp-relations\"}",
+        "{\"language\":\"english\",\"taxonomy\":[{\"confident\":false,\"label\":\"/technology and computing/internet technology/email\",\"score\":0.99834},{\"confident\":false,\"label\":\"/art and entertainment/visual art and design/design\",\"score\":0.0268356},{\"confident\":false,\"label\":\"/technology and computing/internet technology/chat\",\"score\":0.0215642}],\"annotationId\":\"5947d008e4b03567404d0c2b\",\"created\":1497878536050,\"createdBy\":\"toscana-aip-nlc-consumer-client-id\",\"type\":\"message-nlp-taxonomy\"}"
+      ]
+    }
+  }
+}

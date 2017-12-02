@@ -1,0 +1,5 @@
+info/
+node_modules/
+pushToBM*
+tailLogs.sh
+npm-debug.log

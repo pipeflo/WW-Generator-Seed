@@ -1,0 +1,2 @@
+This folder will temporary hold files downloaded for the scripts.
+So, don't remove this file or this folder won't be created on the bluemix server and the code will fail.

@@ -1,0 +1,6 @@
+---
+applications:
+- name:
+  memory: 256M
+  host: 
+  domain: mybluemix.net

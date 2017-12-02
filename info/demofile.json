@@ -1,0 +1,60 @@
+{
+  "scenarioname": "Project Demo Generator",
+  "spaceid": "593e7ec3e4b0b93c0b5b21e7",
+  "script": [{
+      "email": "frankadams@silvergreen.eu",
+      "action": "text",
+      "text": "I'm looking for some more *Connections* deals in _my territory_"
+    }, {
+      "email": "frankadams@silvergreen.eu",
+      "action": "image",
+      "url": "https://steve-inc.box.com/shared/static/yrodv1yg2a7m520hyj9a3w0ymm84hkk2.png",
+      "filename": "remote.png",
+      "dim": "500x300"
+    }, {
+      "email": "steve.lievens@silvergreen.eu",
+      "action": "text",
+      "text": "Have a look in here :"
+    }, {
+      "email": "steve.lievens@silvergreen.eu",
+      "action": "file",
+      "url": "https://steve-inc.box.com/shared/static/g9x1u5ygo49zuzm978tkqsyf3na0n1wk.pptx",
+      "filename": "Project Toscana.pptx"
+    }, {
+      "email": "frankadams@silvergreen.eu",
+      "action": "text",
+      "text": "Thanks, will have a look !"
+    }, {
+      "email": "steve.lievens@silvergreen.eu",
+      "action": "text",
+      "text": "You're welcome. Let me know how that works out"
+    }, {
+      "email": "peter.moensen@telenet.be",
+      "action": "text",
+      "text": "Thanks from me as well <@b241101e-d7fd-47aa-999c-75b3ea696d85|Steve> !"
+    }, {
+      "email": "steve.lievens@silvergreen.eu",
+      "action": "shout",
+      "text": "You're very welcome. 😀"
+    }, {
+      "email": "steve.lievens@silvergreen.eu",
+      "action": "text",
+      "text": "In the meanwhile, take a look at this : [link](http://www.ibm.com)"
+    }, {
+      "email": "koen.lenaerts@silvergreen.eu",
+      "action": "text",
+      "text": "Excellent ! Any idea who the expert is on Connections ? 🤓"
+    }, {
+      "email": "koen.lenaerts@silvergreen.eu",
+      "action": "image",
+      "url": "https://steve-inc.box.com/shared/static/d812lttvh71gxyapdd24fou8js39qptr.png",
+      "filename": "mobile.png",
+      "dim": "360x225"
+    },
+    {
+      "email": "stijn_van_herzele@silvergreen.eu",
+      "action": "text",
+      "text": "Cool. Very interested too !!!"
+    }
+  ]
+}

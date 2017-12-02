@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "userName": "Health Bot",
+      "userid": "d7dda23b-9831-47f8-a76b-ec2979a20ddb"
+    },
+    {
+      "userName": "Ingres Paciente",
+      "userid": "7bea1cc8-f16f-4e6c-8243-46783001b1e9"
+    },
+    {
+      "userName": "Felipe Flórez",
+      "userid": "f8b0f4d2-b91b-452c-b19e-f171dbe52101"
+    },
+    {
+      "userName": "Lucia Castro",
+      "userid": "6be168db-8565-4597-a7e0-91f3b7879d1d"
+    }
+  ]
+}

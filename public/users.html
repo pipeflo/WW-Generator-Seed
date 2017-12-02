@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109149620-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109149620-1');
+</script>
+
+  <title>IBM Watson Work Demo Generator</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/start.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="vcenter">
+        <a href="/"><img class="newappIcon" src="images/newapp-icon.png" style="width:50px"></a>
+      </div>
+      <div class="d-flex align-items-center">
+        <h1>Demo Generator App</h1>
+      </div>
+    </div>
+    <div class="row">
+      <h4>List of Demo Users</h4>
+    </div>
+    <div class="row">
+      <button id="checklist" type="button" class="btn btn-outline-primary btn-sm mr-1">Check and Refresh List</button>
+      <button id="newuser" type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#NewUserModal">+ New User</button>
+    </div>
+    <div class="row">
+      <table id="usertable" class="table table-sm">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Workspace ID</th>
+            <th>Token Valid ?</th>
+            <th>Refresh Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+      <div id="users">
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade modalnewuser" id="NewUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form method="POST" action="/newuser">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modaltitle">Create New User</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div class="form-group">
+              <label for="newuseremail">Email address (of a registered Workspace user)</label>
+              <input type="email" class="form-control" id="newuseremail" placeholder="Enter email" name="newuseremail">
+            </div>
+            <div class="form-group">
+              <label for="refreshToken">User refreshToken (toscana_refresh_token)</label>
+              <textarea class="form-control" id="refreshToken" rows="3" name="refreshToken"></textarea>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" id="modalokbutton">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script>
+    // vars
+    var script = "";
+    var jscript = {};
+
+    $(document).ready(function() {
+
+      console.log("Calling /users");
+
+      var last_response_len = false;
+      $.ajax('/userslist', {
+          type: "POST",
+          data: script,
+          contentType: "application/json",
+          dataType: "html",
+          xhrFields: {
+            onprogress: function(e) {
+              var this_response, response = e.currentTarget.response;
+              if (last_response_len === false) {
+                this_response = response;
+                last_response_len = response.length;
+              } else {
+                this_response = response.substring(last_response_len);
+                last_response_len = response.length;
+              }
+              console.log(this_response);
+              if (this_response.startsWith("<tr")) {
+                $("#usertable > tbody:last-child").append(this_response);
+              } else {
+                $("#users").append(this_response);
+              }
+            }
+          }
+        })
+        .done(function(data) {
+          console.log("Incoming data finished.");
+        })
+        .fail(function(data) {
+          console.log('Error: ', data);
+        });
+
+      // When new user button is clicked
+      $("#newuser").click(function() {
+        $("#modaltitle").text("Create New User");
+        $("#modalokbutton").text("Create");
+        $("#newuseremail").removeAttr("readonly");
+        $("#newuseremail").val("");
+      });
+
+      // Update buttons in the rows, when a user refreshtoken is not valid
+      $("#usertable").on("click", ".updateuser", function() {
+        var clickedBtnID = $(this).attr('id');
+        console.log("Update User clicked " + clickedBtnID);
+        $("#modaltitle").text("Update User");
+        $("#modalokbutton").text("Update");
+        $("#newuseremail").attr("readonly", "readonly");
+        $("#newuseremail").val($(this).attr("cust-attr-email"));
+      });
+
+      $("#checklist").click(function() {
+        // Deleting table
+        $("#usertable tbody tr").remove();
+
+        console.log("Posting to /userscheck ...");
+
+        var last_response_len = false;
+        $.ajax('/userscheck', {
+            type: "POST",
+            data: script,
+            contentType: "application/json",
+            dataType: "html",
+            xhrFields: {
+              onprogress: function(e) {
+                var this_response, response = e.currentTarget.response;
+                if (last_response_len === false) {
+                  this_response = response;
+                  last_response_len = response.length;
+                } else {
+                  this_response = response.substring(last_response_len);
+                  last_response_len = response.length;
+                }
+                console.log(this_response);
+                if (this_response.startsWith("<tr")) {
+                  $("#usertable > tbody:last-child").append(this_response);
+                } else {
+                  $("#users").append(this_response);
+                }
+              }
+            }
+          })
+          .done(function(data) {
+            console.log("Incoming data finished.");
+          })
+          .fail(function(data) {
+            console.log('Error: ', data);
+          });
+      });
+    });
+  </script>
+</body>
+
+</html>

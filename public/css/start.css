@@ -1,0 +1,30 @@
+body, html {
+  background-color: #3b4b54;
+  /* width : 99%; */
+  /* height: 99%; */
+  margin: 0 auto;
+  padding: 1%;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: #ffffff;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+div {
+  margin: 10px;
+}
+
+.custom-file {
+  width: 90%;
+}
+
+.custom-file-control.selected:lang(en)::after {
+  content: "" !important;
+}
+
+.modalnewuser {
+  color: black;
+}

@@ -1,0 +1,13 @@
+{
+  "id": "ibm0@default@593e7ec3e4b0b93c0b5b21e7@file-021687c9-e07a-4202-b423-a17f8fa06f73",
+  "name": "Project Toscana.pptx",
+  "size": 10129047,
+  "urls": {
+    "metadata": "https://api.watsonwork.ibm.com/files/api/v1/files/file/ibm0@default@593e7ec3e4b0b93c0b5b21e7@file-021687c9-e07a-4202-b423-a17f8fa06f73",
+    "noredirect_download": "https://api.watsonwork.ibm.com/files/api/v1/files/file/ibm0@default@593e7ec3e4b0b93c0b5b21e7@file-021687c9-e07a-4202-b423-a17f8fa06f73/content/noredirect/Project Toscana.pptx",
+    "redirect_download": "https://api.watsonwork.ibm.com/files/api/v1/files/file/ibm0@default@593e7ec3e4b0b93c0b5b21e7@file-021687c9-e07a-4202-b423-a17f8fa06f73/content/redirect/Project Toscana.pptx"
+  },
+  "created": 1498201674000,
+  "createdBy": "5f8787c7-d2dc-4fae-9e58-33ab9fff3944",
+  "contentType": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+}
