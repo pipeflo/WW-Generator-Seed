@@ -146,7 +146,6 @@ if (APP_MODE === "PROD") {
 // --------------------------------------------------------------------------
 // Initialize the library with my account.
 var cloudant = Cloudant({account: CLOUDANT_USER, password: CLOUDANT_PW});
-var cloudantFinderConfig = Cloudant({account: "997b023c-f8ae-48e2-ae07-8d2a41b7857b-bluemix", password: "231c261834a46f5ad68cc7b109373c2787db356a3ed1c98c7e9493c1b913d2be"});
 
 // --------------------------------------------------------------------------
 // Setup the express server
@@ -1204,7 +1203,7 @@ function configDemoSpace(spaceid, callback){
   console.log("Configuring the Space: ", spaceid);
 
   // Get our database
-  var db = cloudantFinderConfig.db.use("expertfinder");
+  var db = cloudant.db.use("expertfinder");
 
   //Create record
   db.insert({
