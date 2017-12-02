@@ -1,6 +1,9 @@
 ---
 applications:
-- name:
+- name: <appName>
   memory: 256M
-  host: 
+  host: <appName>
   domain: mybluemix.net
+  command: npm start
+  services:
+  - <CloudantServiceName>
