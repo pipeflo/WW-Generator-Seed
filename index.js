@@ -70,11 +70,11 @@ var LOG_AUTHOR;
 // These should be entered as additional environment variables when running on
 // Bluemix
 // The Workspace App IDs
-const APP_ID;
-const APP_SECRET;
-const APP_WEBHOOK_SECRET;
-const APP_URL;
-const SPACE_ID_WWLABQA;
+const APP_ID = "<application id>";
+const APP_SECRET = "<application secret>";
+const APP_WEBHOOK_SECRET = "<Web Hook Secret>";
+const APP_URL = "<applicaiont url>";
+const SPACE_ID_WWLABQA = "";
 
 // cloudantNoSQLDB
 var CLOUDANT_USER;
