@@ -110,15 +110,6 @@ if (process.env.VCAP_SERVICES) {
   console.log("Cloudant API keys coming from local");
 }
 
-// Grab the rest from the bluemix env. or from the local env. file
-// Workspace APP keys
-APP_ID = process.env.APP_ID;
-APP_SECRET = process.env.APP_SECRET;
-APP_WEBHOOK_SECRET = process.env.APP_WEBHOOK_SECRET;
-DEV_WEBHOOK_SECRET = process.env.DEV_WEBHOOK_SECRET;
-APP_URL = process.env.APP_URL;
-SPACE_ID_WWLABQA = process.env.SPACE_ID_WWLABQA;
-
 // Logging parameters
 LOG_DC = process.env.LOG_DC;
 LOG_AUTHOR = process.env.LOG_AUTHOR;
