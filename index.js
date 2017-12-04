@@ -70,15 +70,11 @@ var LOG_AUTHOR;
 // These should be entered as additional environment variables when running on
 // Bluemix
 // The Workspace App IDs
-var APP_ID;
-var DEV_ID;
-var APP_SECRET;
-var DEV_SECRET;
-var APP_WEBHOOK_SECRET;
-var DEV_WEBHOOK_SECRET;
-var APP_URL;
-var APP_MODE;
-var SPACE_ID_WWLABQA;
+const APP_ID;
+const APP_SECRET;
+const APP_WEBHOOK_SECRET;
+const APP_URL;
+const SPACE_ID_WWLABQA;
 
 // cloudantNoSQLDB
 var CLOUDANT_USER;
@@ -117,12 +113,9 @@ if (process.env.VCAP_SERVICES) {
 // Grab the rest from the bluemix env. or from the local env. file
 // Workspace APP keys
 APP_ID = process.env.APP_ID;
-DEV_ID = process.env.DEV_ID;
 APP_SECRET = process.env.APP_SECRET;
-DEV_SECRET = process.env.DEV_SECRET;
 APP_WEBHOOK_SECRET = process.env.APP_WEBHOOK_SECRET;
 DEV_WEBHOOK_SECRET = process.env.DEV_WEBHOOK_SECRET;
-APP_MODE = process.env.APP_MODE;
 APP_URL = process.env.APP_URL;
 SPACE_ID_WWLABQA = process.env.SPACE_ID_WWLABQA;
 
@@ -130,16 +123,6 @@ SPACE_ID_WWLABQA = process.env.SPACE_ID_WWLABQA;
 LOG_DC = process.env.LOG_DC;
 LOG_AUTHOR = process.env.LOG_AUTHOR;
 
-// Switch to DEV webhook if APP_MODE = DEV
-if (APP_MODE === "DEV") {
-  console.log("Using the DEV app");
-  APP_ID = DEV_ID;
-  APP_SECRET = DEV_SECRET;
-  APP_WEBHOOK_SECRET = DEV_WEBHOOK_SECRET;
-}
-if (APP_MODE === "PROD") {
-  console.log("PROD : Using the PROD app");
-}
 
 // --------------------------------------------------------------------------
 // Setup Cloudant
