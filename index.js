@@ -521,11 +521,15 @@ function processScript(generatorinput, res){
   // maintain the status. When something goes wrong, use it to escape the script generation
   var generationStatus = true;
 
+
+
   // ------------------------------------------------------------
   // LF - Create the Space and add the ID to the Script
   // ------------------------------------------------------------
+  // Get the app accesstoken first
+
   console.log("Creating space with name: ", generatorinput.spacename);
-  createDemoSpace(generatorinput.spacename, function(errCreatingSpace, spaceid, userAccessToken){
+  createDemoSpace(generatorinput.spacename, generatorinput.script[0].email, function(errCreatingSpace, spaceid, userAccessToken){
     if (errCreatingSpace) {
       generationStatus = false;
       console.log("Could not create the Space - shouldn't happen. EROR::", errCreatingSpace);
@@ -778,9 +782,6 @@ function processScript(generatorinput, res){
       });*/
     }
   });
-
-
-  /**/
 }
 
 // --------------------------------------------------------------------------
@@ -1103,69 +1104,91 @@ function postFileToSpace(accessToken, spaceId, dlurl, dlfilename, isImage, imgdi
 
 //--------------------------------------------------------------------------
 //Create Health Demo Space
-function createDemoSpace(spacename, callback){
+function createDemoSpace(spacename, useremail ,callback){
   console.log("------------------------------------");
   console.log("Starting patient admission!!!");
 
   //set the appropriate HTTP header
   //res.setHeader('Content-Type', 'text/html');
 
-  // Get our database
-  var iwwdemogenerator = cloudant.db.use("iwwdemogenerator");
+  getAuthFromAppIdSecret(APP_ID, APP_SECRET, function(err, accessToken) {
 
-  //Get the user refreshToken
-  iwwdemogenerator.get("1dd82d81-7da8-4d99-91b4-c291a0134c07",{}, function(err, user){
     if (err) {
-      console.log(err);
-      callback("Error getting user from database. Please notify the app owner to have a look at this, Error: " + err, null);
-      //res.write("Error getting user from database. Please notify the app owner to have a look at this.<br>");
-      //res.end();
-      //return;
+      console.log("Couldn't get an App Access token - shouldn't happen.");
+      res.redirect("/users.html?status=errorauth");
+      return;
     }
 
-    console.log("Got Sonia Lopez Refresh Token:", user.refreshToken);
-
-    getAuthFromRefreshTokenHack(user.refreshToken, function(err2, accessToken, refreshToken, userName, userid) {
-      if (err2) {
-        console.log("Couldn't get accessToken for", user.userName);
-        callback("Error getting accessToken for " + user.userName + ", Error::" + err2, null);
-        //res.write("Error getting accessToken for " + user.userName + ".<br>");
-        //res.end();
+    getUserId(accessToken, useremail, function(err, personid, personname, accessToken) {
+      if (err) {
+        console.log("Couldn't find user.");
+        res.write("Could not find user" + useremail +"<br>");
+        return;
       } else {
-        console.log("Got token for", userName);
-        user.refreshToken = refreshToken;
-        user.userName = userName;
-        user.tokenok = true;
-        user.refreshdate = new Date();
+        res.write("User ID found for " + useremail+ ", Id : "+ personid + "<br>");
+        console.log("User ID found for ", useremail, ", Id : ", personid);
 
-        //Create Space
-        createNewSpace(accessToken, spacename, function(err3, spaceid, accessToken){
-          if(!err3){
-            console.log("Space Created with ID:", spaceid);
-            callback(null, spaceid, accessToken);
-          }
-          else {
-            console.log("Couldn't create the Space, Error:::", err3);
-            callback("Couldn't create the Space, Error:::" + err3);
-            //res.write("Couldn't create the Space, Error:::" + err3 + ".<br>");
-            //res.end();
-          }
-        });
+        // Get our database
+        var iwwdemogenerator = cloudant.db.use("iwwdemogenerator");
 
-        // Last step : update the database
-        iwwdemogenerator.insert(user, user.userid, function(err, retdoc) {
+        //Get the user refreshToken
+        iwwdemogenerator.get(personid,{}, function(err, user){
           if (err) {
-            console.log("Error adding refreshtoken to database :", err.message);
-          } else {
-            console.log("Refresh token updated for", user.userName);
+            console.log(err);
+            callback("Error getting user from database. Please notify the app owner to have a look at this, Error: " + err, null);
+            //res.write("Error getting user from database. Please notify the app owner to have a look at this.<br>");
+            //res.end();
+            //return;
           }
-        });
 
+          if (!user.refreshToken){
+            console.log(err);
+            callback("Error getting refresh Token, user not found!!");
+          }
+
+          console.log("Got Sonia Lopez Refresh Token:", user.refreshToken);
+
+          getAuthFromRefreshTokenHack(user.refreshToken, function(err2, accessToken, refreshToken, userName, userid) {
+            if (err2) {
+              console.log("Couldn't get accessToken for", user.userName);
+              callback("Error getting accessToken for " + user.userName + ", Error::" + err2, null);
+              //res.write("Error getting accessToken for " + user.userName + ".<br>");
+              //res.end();
+            } else {
+              console.log("Got token for", userName);
+              user.refreshToken = refreshToken;
+              user.userName = userName;
+              user.tokenok = true;
+              user.refreshdate = new Date();
+
+              //Create Space
+              createNewSpace(accessToken, spacename, function(err3, spaceid, accessToken){
+                if(!err3){
+                  console.log("Space Created with ID:", spaceid);
+                  callback(null, spaceid, accessToken);
+                }
+                else {
+                  console.log("Couldn't create the Space, Error:::", err3);
+                  callback("Couldn't create the Space, Error:::" + err3);
+                  //res.write("Couldn't create the Space, Error:::" + err3 + ".<br>");
+                  //res.end();
+                }
+              });
+
+              // Last step : update the database
+              iwwdemogenerator.insert(user, user.userid, function(err, retdoc) {
+                if (err) {
+                  console.log("Error adding refreshtoken to database :", err.message);
+                } else {
+                  console.log("Refresh token updated for", user.userName);
+                }
+              });
+
+            }
+          });
+        });
       }
     });
-
-    //res.write("USER:" + user);
-    //res.end();
   });
 
 }

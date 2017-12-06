@@ -2,11 +2,11 @@
   "users": [
     {
       "userName": "Health Bot",
-      "userid": "d7dda23b-9831-47f8-a76b-ec2979a20ddb"
+      "userid": "<Health Bot Application ID>"
     },
     {
-      "userName": "Ingreso Paciente",
-      "userid": "7bea1cc8-f16f-4e6c-8243-46783001b1e9"
+      "userName": "Demo Generator",
+      "userid": "<Demo Generator Application ID>"
     },
     {
       "userName": "Felipe Flórez",
