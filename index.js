@@ -35,10 +35,10 @@ var LOG_AUTHOR;
 // The Workspace App IDs
 const APP_ID = "<application id>";
 const APP_SECRET = "<application secret>";
-const APP_WEBHOOK_SECRET = "<Web Hook Secret>";
 const APP_URL = "<application url>";
 const DEMO_USER_EMAIL = "<Watson Workspace User Email Address>";
-const SPACE_ID_WWLABQA = "";
+const APP_WEBHOOK_SECRET = "<Web Hook Secret>";
+var SPACE_ID_WWLABQA = "";
 
 // cloudantNoSQLDB
 var CLOUDANT_USER;
@@ -1080,18 +1080,18 @@ function createDemoSpace(spacename, res, callback){
 
     if (err) {
       console.log("Couldn't get an App Access token - shouldn't happen.");
-      res.write("Could not find user" + useremail +"<br>");
+      res.write("Could not find user" + DEMO_USER_EMAIL +"<br>");
       return;
     }
 
     getUserId(accessToken, DEMO_USER_EMAIL, function(err, personid, personname, accessToken) {
       if (err) {
         console.log("Couldn't find user.");
-        res.write("Could not find user" + useremail +"<br>");
+        res.write("Could not find user" + DEMO_USER_EMAIL +"<br>");
         return;
       } else {
-        res.write("User ID found for " + useremail+ ", Id : "+ personid + "<br>");
-        console.log("User ID found for ", useremail, ", Id : ", personid);
+        res.write("User ID found for " + DEMO_USER_EMAIL+ ", Id : "+ personid + "<br>");
+        console.log("User ID found for ", DEMO_USER_EMAIL, ", Id : ", personid);
 
         // Get our database
         var iwwdemogenerator = cloudant.db.use("iwwdemogenerator");
