@@ -13,7 +13,6 @@
     "async": "^2.4.1",
     "basic-auth": "^1.1.0",
     "body-parser": "^1.17.2",
-    "box-node-sdk": "1.9.0",
     "cloudant": "^1.8.0",
     "crypto": "0.0.3",
     "dotenv": "^4.0.0",

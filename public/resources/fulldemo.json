@@ -10,42 +10,33 @@
   ],
   "script": [
     {
-      "email": "<Main user Watson Workspace Email>",
       "action": "text",
       "text": "/moment new"
     }, {
-      "email": "<Main user Watson Workspace Email>",
       "action": "text",
       "text": "Hola soy el médico gestor de <@f8b0f4d2-b91b-452c-b19e-f171dbe52101|Felipe Flórez>"
     }, {
-      "email": "<Main user Watson Workspace Email>",
       "action": "text",
       "text": "<@f8b0f4d2-b91b-452c-b19e-f171dbe52101|Felipe Flórez> es un paciente Diabetico e Hipertenso"
     }, {
-      "email": "<Main user Watson Workspace Email>",
       "action": "text",
       "text": "Nacido el 19 de enero del 88, enfermedad diagnosticada a los 2 años de edad"
     }, {
-      "email": "<Main user Watson Workspace Email>",
       "action": "text",
       "text": "Insulino dependiente con bomba de insulina y dosis por conteo de carbohidratos"
     }, {
-      "email": "<Main user Watson Workspace Email>",
       "action": "text",
       "text": "/moment new"
     }, {
-      "email": "<Main user Watson Workspace Email>",
       "action": "image",
       "url": "https://socialdemo.box.com/shared/static/4ha38cdhpl6hmkj6jlbqahmcask56p0n.gif",
       "filename": "examenes de sangre.gif",
       "dim": "500x300"
     }, {
-      "email": "<Main user Watson Workspace Email>",
       "action": "file",
       "url": "https://socialdemo.box.com/shared/static/3edrema79kt27zcu18hkvcai6pdpa725.pdf",
       "filename": "Historia Clínica.pdf"
     }, {
-      "email": "<Main user Watson Workspace Email>",
       "action": "file",
       "url": "https://socialdemo.box.com/shared/static/4btf9h73ts5qwgav1155qupbxhnz41m5.txt",
       "filename": "Comentarios.txt"

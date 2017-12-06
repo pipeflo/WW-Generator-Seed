@@ -10,44 +10,7 @@ var crypto = require("crypto");
 var _ = require("underscore");
 var async = require("async");
 var Cloudant = require("cloudant");
-var box = require("box-node-sdk");
 var fs = require("fs");
-
-//Config files dirs
-var labscript = require('./scripts/labscript.json');
-var configFile = fs.readFileSync('certs/config.json');
-configFile = JSON.parse(configFile);
-
-// Initialize the SDK with the Box configuration file and create a client that uses the Service Account.
-//configFile.publicKeyID = fs.readFileSync("public_key.pem");
-let session = box.getPreconfiguredInstance(configFile);
-let serviceAccountClient = session.getAppAuthClient('enterprise');
-
-//console.log("Service Account: ",serviceAccountClient);
-//console.log("Session: ", session.requestManager);
-
-// Use the users.get method to retrieve current user's information by passing 'me' as the ID.
-// Since this client uses the Service Account, this will return the Service Account's information.
-serviceAccountClient.users.get('me', null)
-    .then((serviceAccountUser) => {
-        // Log the Service Account's login value which should contain "AutomationUser".
-        // For example, AutomationUser_375517_dxVhfxwzLL@boxdevedition.com
-        console.log("Service Account: ",serviceAccountUser)
-    })
-    .catch((err) => {
-        // Log any errors for debugging
-        console.log(err);
-    });
-
-
-serviceAccountClient.users.update('123', {name: 'New Name', job_title: 'New Title', phone: '555-1111'}, function(err, user){
-  if(err){
-    console.log("Error creando usuario: ", err);
-  } else {
-    console.log("Usuario creado: ", user);
-  }
-});
-
 
 // --------------------------------------------------------------------------
 // Setup global variables
@@ -73,7 +36,8 @@ var LOG_AUTHOR;
 const APP_ID = "<application id>";
 const APP_SECRET = "<application secret>";
 const APP_WEBHOOK_SECRET = "<Web Hook Secret>";
-const APP_URL = "<applicaiont url>";
+const APP_URL = "<application url>";
+const DEMO_USER_EMAIL = "<Watson Workspace User Email Address>";
 const SPACE_ID_WWLABQA = "";
 
 // cloudantNoSQLDB
@@ -529,7 +493,7 @@ function processScript(generatorinput, res){
   // Get the app accesstoken first
 
   console.log("Creating space with name: ", generatorinput.spacename);
-  createDemoSpace(generatorinput.spacename, generatorinput.script[0].email, function(errCreatingSpace, spaceid, userAccessToken){
+  createDemoSpace(generatorinput.spacename, res, function(errCreatingSpace, spaceid, userAccessToken){
     if (errCreatingSpace) {
       generationStatus = false;
       console.log("Could not create the Space - shouldn't happen. EROR::", errCreatingSpace);
@@ -608,6 +572,7 @@ function processScript(generatorinput, res){
                 // Already add the spaceid, appAccessToken and response to each object in the script as we'll need it later on
                 var arrayLength = script.length;
                 for (var i = 0; i < arrayLength; i++) {
+                  script[i].email = DEMO_USER_EMAIL;
                   script[i].spaceid = spaceid;
                   script[i].appAccessToken = appAccessToken;
                   script[i].res = res;
@@ -1104,7 +1069,7 @@ function postFileToSpace(accessToken, spaceId, dlurl, dlfilename, isImage, imgdi
 
 //--------------------------------------------------------------------------
 //Create Health Demo Space
-function createDemoSpace(spacename, useremail ,callback){
+function createDemoSpace(spacename, res, callback){
   console.log("------------------------------------");
   console.log("Starting patient admission!!!");
 
@@ -1115,11 +1080,11 @@ function createDemoSpace(spacename, useremail ,callback){
 
     if (err) {
       console.log("Couldn't get an App Access token - shouldn't happen.");
-      res.redirect("/users.html?status=errorauth");
+      res.write("Could not find user" + useremail +"<br>");
       return;
     }
 
-    getUserId(accessToken, useremail, function(err, personid, personname, accessToken) {
+    getUserId(accessToken, DEMO_USER_EMAIL, function(err, personid, personname, accessToken) {
       if (err) {
         console.log("Couldn't find user.");
         res.write("Could not find user" + useremail +"<br>");
@@ -1146,7 +1111,7 @@ function createDemoSpace(spacename, useremail ,callback){
             callback("Error getting refresh Token, user not found!!");
           }
 
-          console.log("Got Sonia Lopez Refresh Token:", user.refreshToken);
+          //console.log("Got Sonia Lopez Refresh Token:", user.refreshToken);
 
           getAuthFromRefreshTokenHack(user.refreshToken, function(err2, accessToken, refreshToken, userName, userid) {
             if (err2) {
