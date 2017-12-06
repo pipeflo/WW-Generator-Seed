@@ -33,9 +33,9 @@ var LOG_AUTHOR;
 // These should be entered as additional environment variables when running on
 // Bluemix
 // The Workspace App IDs
-const APP_ID = "<application id>";
-const APP_SECRET = "<application secret>";
-const APP_URL = "<application url>";
+const APP_ID = "<demo generator application id>";
+const APP_SECRET = "<demo generator application secret>";
+const APP_URL = "<demo generator application url>";
 const DEMO_USER_EMAIL = "<Watson Workspace User Email Address>";
 const APP_WEBHOOK_SECRET = "<Web Hook Secret>";
 var SPACE_ID_WWLABQA = "";
@@ -1080,7 +1080,7 @@ function createDemoSpace(spacename, res, callback){
 
     if (err) {
       console.log("Couldn't get an App Access token - shouldn't happen.");
-      res.write("Could not find user" + DEMO_USER_EMAIL +"<br>");
+      res.write("Could not get an App Access token <br>");
       return;
     }
 
